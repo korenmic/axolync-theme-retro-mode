@@ -1,0 +1,126 @@
+@font-face {
+  font-family: "Axolync Retro Cockpit HUD";
+  src: url("themes/retro-cockpit-hud/fonts/retro-cockpit-hud.ttf") format("truetype");
+}
+
+body[data-theme="retro-cockpit-hud"] {
+  --app-bg: #04070d;
+  --app-text: #eff7ff;
+  --app-font: "Axolync Retro Cockpit HUD", "Courier New", monospace;
+  --lyric-font: "Axolync Retro Cockpit HUD", "Courier New", monospace;
+  --surface-1: rgba(7, 14, 23, 0.84);
+  --surface-2: rgba(4, 10, 16, 0.94);
+  --surface-3: rgba(14, 22, 34, 0.96);
+  --border: rgba(111, 198, 255, 0.28);
+  --muted: #9db3c3;
+  --accent-ready: #6af8cb;
+  --accent-paused: #ffd075;
+  --accent-loading: #73c8ff;
+  --accent-word: #89fff8;
+  --accent-syncloss: #ff946d;
+  --overlay-gradient: linear-gradient(90deg, rgba(4, 8, 13, 0.12) 0%, rgba(8, 15, 23, 0.58) 68%, rgba(4, 7, 12, 0.82) 100%);
+  --status-ready-bg: rgba(10, 40, 31, 0.92);
+  --status-paused-bg: rgba(73, 52, 13, 0.9);
+  --status-syncloss-bg: rgba(74, 24, 11, 0.9);
+  --shadow-elevated: 0 16px 42px rgba(0, 0, 0, 0.45);
+  --ambient-top: radial-gradient(circle at 50% 0%, rgba(104, 195, 255, 0.14), transparent 58%);
+  --ambient-bottom: linear-gradient(180deg, transparent 0%, rgba(8, 12, 20, 0.76) 100%);
+}
+
+body[data-theme="retro-cockpit-hud"]::before {
+  background:
+    linear-gradient(180deg, rgba(4, 8, 13, 0.08) 0%, rgba(2, 5, 8, 0.5) 100%),
+    var(--ambient-top),
+    url("themes/retro-cockpit-hud/assets/app-shell-backdrop.svg");
+  background-size: cover;
+  background-position: center;
+}
+
+body[data-theme="retro-cockpit-hud"]::after { background: var(--ambient-bottom); }
+
+body[data-theme="retro-cockpit-hud"] #status-bar,
+body[data-theme="retro-cockpit-hud"] #controls,
+body[data-theme="retro-cockpit-hud"] #progress-bar-top-host,
+body[data-theme="retro-cockpit-hud"] #progress-bar-bottom-host,
+body[data-theme="retro-cockpit-hud"] .modal-content,
+body[data-theme="retro-cockpit-hud"] .plugin-item,
+body[data-theme="retro-cockpit-hud"] .plugin-settings-inline,
+body[data-theme="retro-cockpit-hud"] .plugin-group,
+body[data-theme="retro-cockpit-hud"] .theme-mode,
+body[data-theme="retro-cockpit-hud"] .state-hero,
+body[data-theme="retro-cockpit-hud"] .loading-state {
+  background: linear-gradient(180deg, rgba(11, 20, 31, 0.88), rgba(6, 12, 19, 0.96));
+  border: 1px solid rgba(111, 198, 255, 0.24);
+  box-shadow: var(--shadow-elevated), inset 0 0 0 1px rgba(111, 198, 255, 0.06);
+  clip-path: polygon(0.75rem 0, calc(100% - 0.75rem) 0, 100% 0.75rem, 100% calc(100% - 0.75rem), calc(100% - 0.75rem) 100%, 0.75rem 100%, 0 calc(100% - 0.75rem), 0 0.75rem);
+}
+
+body[data-theme="retro-cockpit-hud"] .song-meta-fixed,
+body[data-theme="retro-cockpit-hud"] .lyrics-container {
+  background: linear-gradient(180deg, rgba(8, 16, 24, 0.84), rgba(5, 11, 18, 0.96));
+  border: 1px solid rgba(111, 198, 255, 0.2);
+  box-shadow: 0 0 22px rgba(69, 165, 255, 0.08), inset 0 0 0 1px rgba(111, 198, 255, 0.06);
+}
+
+body[data-theme="retro-cockpit-hud"] .song-meta-fixed::after {
+  content: "";
+  position: absolute;
+  right: 0.95rem;
+  top: 0.8rem;
+  width: 3rem;
+  height: 3rem;
+  background: url("themes/retro-cockpit-hud/assets/hero-brand-mark.svg") center/contain no-repeat;
+  opacity: 0.26;
+  pointer-events: none;
+}
+
+body[data-theme="retro-cockpit-hud"] button:not(:disabled),
+body[data-theme="retro-cockpit-hud"] select,
+body[data-theme="retro-cockpit-hud"] input,
+body[data-theme="retro-cockpit-hud"] textarea,
+body[data-theme="retro-cockpit-hud"] .song-meta-fixed,
+body[data-theme="retro-cockpit-hud"] .lyric-unit,
+body[data-theme="retro-cockpit-hud"] .state-message {
+  font-family: var(--lyric-font);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+body[data-theme="retro-cockpit-hud"] button:not(:disabled) {
+  background: linear-gradient(180deg, rgba(15, 29, 43, 0.98), rgba(8, 14, 22, 0.98));
+  color: var(--app-text);
+  border: 1px solid rgba(111, 198, 255, 0.2);
+}
+
+body[data-theme="retro-cockpit-hud"] .progress-bar__track {
+  background: rgba(7, 15, 22, 0.96);
+  border-color: rgba(111, 198, 255, 0.18);
+}
+
+body[data-theme="retro-cockpit-hud"] .progress-bar__bump,
+body[data-theme="retro-cockpit-hud"] .progress-bar__cursor {
+  background: #82fff7;
+  box-shadow: 0 0 12px rgba(130, 255, 247, 0.42);
+}
+
+body[data-theme="retro-cockpit-hud"] .lyrics-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(111, 198, 255, 0.03), transparent 18%, transparent 82%, rgba(111, 198, 255, 0.03)),
+    repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0 1px, transparent 1px 9px);
+}
+
+body[data-theme="retro-cockpit-hud"] .lyric-unit {
+  color: #b8d3de;
+  text-shadow: 0 0 10px rgba(111, 198, 255, 0.12);
+}
+
+body[data-theme="retro-cockpit-hud"] .lyric-unit.active,
+body[data-theme="retro-cockpit-hud"] .lyric-unit.active .lyric-line-text {
+  color: #8efef7;
+  text-shadow: 0 0 18px rgba(142, 254, 247, 0.44), 0 0 5px rgba(255, 255, 255, 0.22);
+}
+

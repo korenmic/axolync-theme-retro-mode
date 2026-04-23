@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#240607"/>
+      <stop offset="1" stop-color="#080102"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="10" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect x="140" y="120" width="1320" height="410" rx="18" fill="#180405" stroke="#5a1313" stroke-width="4"/>
+  <g fill="#ff544a" filter="url(#glow)">
+    <rect x="220" y="180" width="90" height="24" rx="6"/><rect x="286" y="204" width="24" height="116" rx="6"/><rect x="286" y="344" width="24" height="116" rx="6"/><rect x="220" y="460" width="90" height="24" rx="6"/><rect x="196" y="344" width="24" height="116" rx="6"/><rect x="196" y="204" width="24" height="116" rx="6"/><rect x="220" y="320" width="90" height="24" rx="6"/>
+    <rect x="390" y="180" width="90" height="24" rx="6"/><rect x="456" y="204" width="24" height="116" rx="6"/><rect x="456" y="344" width="24" height="116" rx="6"/><rect x="390" y="460" width="90" height="24" rx="6"/><rect x="366" y="344" width="24" height="116" rx="6"/><rect x="366" y="204" width="24" height="116" rx="6"/>
+    <rect x="560" y="180" width="90" height="24" rx="6"/><rect x="626" y="204" width="24" height="116" rx="6"/><rect x="626" y="344" width="24" height="116" rx="6"/><rect x="560" y="460" width="90" height="24" rx="6"/><rect x="536" y="344" width="24" height="116" rx="6"/><rect x="536" y="204" width="24" height="116" rx="6"/><rect x="560" y="320" width="90" height="24" rx="6"/>
+  </g>
+  <rect x="170" y="560" width="1260" height="180" rx="16" fill="#120304" stroke="#401010" stroke-width="3"/>
+  <rect x="220" y="615" width="420" height="36" rx="8" fill="#2a0809"/>
+  <rect x="220" y="675" width="520" height="22" rx="6" fill="#250708"/>
+  <rect x="0" y="0" width="1600" height="900" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="14"/>
+</svg>

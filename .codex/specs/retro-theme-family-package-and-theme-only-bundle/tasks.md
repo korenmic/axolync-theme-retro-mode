@@ -13,7 +13,7 @@
   - Keep the editable/generated source artifacts in-repo alongside the shipped assets.
   - Make Hebrew readability a hard requirement, even when a strict segmented look has to soften into a hybrid treatment.
 
-- [ ] 3. Build the four retro themes so they match the approved visual directions as closely as practical.
+- [x] 3. Build the four retro themes so they match the approved visual directions as closely as practical.
   - Implement theme-owned CSS/assets for each retro theme.
   - Keep the four themes visually distinct rather than reducing them to palette swaps.
 

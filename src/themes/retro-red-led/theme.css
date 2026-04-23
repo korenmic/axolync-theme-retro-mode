@@ -1,0 +1,154 @@
+@font-face {
+  font-family: "Axolync Retro Red LED";
+  src: url("themes/retro-red-led/fonts/retro-red-led.ttf") format("truetype");
+}
+
+body[data-theme="retro-red-led"] {
+  --app-bg: #160304;
+  --app-text: #ffd9d4;
+  --app-font: "Axolync Retro Red LED", "Courier New", monospace;
+  --lyric-font: "Axolync Retro Red LED", "Courier New", monospace;
+  --surface-1: rgba(26, 4, 6, 0.86);
+  --surface-2: rgba(18, 3, 5, 0.92);
+  --surface-3: rgba(37, 8, 10, 0.96);
+  --border: rgba(255, 109, 102, 0.34);
+  --muted: #c27572;
+  --accent-ready: #ff806f;
+  --accent-paused: #ffca76;
+  --accent-loading: #ff6d66;
+  --accent-word: #ff4740;
+  --accent-syncloss: #ffa063;
+  --overlay-gradient: linear-gradient(90deg, rgba(19, 4, 6, 0.18) 0%, rgba(26, 4, 6, 0.64) 70%, rgba(7, 1, 2, 0.86) 100%);
+  --status-ready-bg: rgba(58, 13, 15, 0.94);
+  --status-paused-bg: rgba(73, 43, 12, 0.92);
+  --status-syncloss-bg: rgba(76, 21, 11, 0.92);
+  --shadow-elevated: 0 14px 40px rgba(0, 0, 0, 0.48);
+  --ambient-top: radial-gradient(circle at 50% 0%, rgba(255, 80, 70, 0.15), transparent 54%);
+  --ambient-bottom: linear-gradient(180deg, transparent 0%, rgba(38, 7, 9, 0.72) 100%);
+}
+
+body[data-theme="retro-red-led"]::before {
+  background:
+    linear-gradient(180deg, rgba(14, 2, 3, 0.08) 0%, rgba(8, 1, 2, 0.48) 100%),
+    var(--ambient-top),
+    url("themes/retro-red-led/assets/app-shell-backdrop.svg");
+  background-size: cover;
+  background-position: center;
+}
+
+body[data-theme="retro-red-led"]::after {
+  background: var(--ambient-bottom);
+}
+
+body[data-theme="retro-red-led"] #status-bar,
+body[data-theme="retro-red-led"] #controls,
+body[data-theme="retro-red-led"] #progress-bar-top-host,
+body[data-theme="retro-red-led"] #progress-bar-bottom-host,
+body[data-theme="retro-red-led"] .modal-content,
+body[data-theme="retro-red-led"] .plugin-item,
+body[data-theme="retro-red-led"] .plugin-settings-inline,
+body[data-theme="retro-red-led"] .plugin-group,
+body[data-theme="retro-red-led"] .theme-mode,
+body[data-theme="retro-red-led"] .state-hero,
+body[data-theme="retro-red-led"] .loading-state {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--surface-2) 96%, transparent), color-mix(in srgb, var(--surface-1) 90%, transparent));
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-elevated), 0 0 0 1px rgba(255, 64, 58, 0.08) inset;
+  backdrop-filter: blur(3px);
+}
+
+body[data-theme="retro-red-led"] #controls,
+body[data-theme="retro-red-led"] #status-bar,
+body[data-theme="retro-red-led"] .modal-content {
+  border-radius: 0.8rem;
+}
+
+body[data-theme="retro-red-led"] .song-meta-fixed,
+body[data-theme="retro-red-led"] .lyrics-container {
+  background: linear-gradient(180deg, rgba(35, 7, 8, 0.84), rgba(18, 3, 5, 0.92));
+  border: 1px solid rgba(255, 79, 72, 0.28);
+  box-shadow: inset 0 0 0 1px rgba(255, 76, 76, 0.05), 0 0 25px rgba(255, 56, 48, 0.09);
+}
+
+body[data-theme="retro-red-led"] .song-meta-fixed::after {
+  content: "";
+  position: absolute;
+  right: 0.9rem;
+  top: 0.75rem;
+  width: 3rem;
+  height: 3rem;
+  background: url("themes/retro-red-led/assets/hero-brand-mark.svg") center/contain no-repeat;
+  opacity: 0.34;
+  pointer-events: none;
+}
+
+body[data-theme="retro-red-led"] button:not(:disabled),
+body[data-theme="retro-red-led"] select,
+body[data-theme="retro-red-led"] input,
+body[data-theme="retro-red-led"] textarea {
+  font-family: var(--app-font);
+  letter-spacing: 0.06em;
+}
+
+body[data-theme="retro-red-led"] button:not(:disabled) {
+  background: linear-gradient(180deg, rgba(61, 13, 14, 0.96), rgba(39, 8, 10, 0.96));
+  border: 1px solid rgba(255, 79, 72, 0.26);
+  color: var(--app-text);
+  text-transform: uppercase;
+  box-shadow: 0 0 12px rgba(255, 80, 70, 0.12), inset 0 0 0 1px rgba(255, 123, 112, 0.08);
+}
+
+body[data-theme="retro-red-led"] #start-btn:not(:disabled),
+body[data-theme="retro-red-led"] .status-pill {
+  background: linear-gradient(180deg, rgba(72, 16, 18, 1), rgba(48, 10, 12, 1));
+  color: #ffe6e1;
+}
+
+body[data-theme="retro-red-led"] .progress-bar__track {
+  background: rgba(35, 7, 8, 0.92);
+  border-color: rgba(255, 95, 88, 0.24);
+}
+
+body[data-theme="retro-red-led"] .progress-bar__bump,
+body[data-theme="retro-red-led"] .progress-bar__cursor {
+  background: #ff5d52;
+  box-shadow: 0 0 10px rgba(255, 78, 70, 0.42);
+}
+
+body[data-theme="retro-red-led"] .lyrics-container {
+  position: relative;
+  overflow: hidden;
+}
+
+body[data-theme="retro-red-led"] .lyrics-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(180deg, rgba(255, 82, 74, 0.025) 0 2px, transparent 2px 8px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, transparent 18%);
+}
+
+body[data-theme="retro-red-led"] .song-meta-fixed,
+body[data-theme="retro-red-led"] .lyric-unit,
+body[data-theme="retro-red-led"] .state-message {
+  font-family: var(--lyric-font);
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+}
+
+body[data-theme="retro-red-led"] .lyric-unit {
+  color: #f18d84;
+  text-shadow: 0 0 10px rgba(255, 94, 86, 0.14);
+}
+
+body[data-theme="retro-red-led"] .lyric-unit.active,
+body[data-theme="retro-red-led"] .lyric-unit.active .lyric-line-text {
+  color: #ff5d52;
+  text-shadow: 0 0 18px rgba(255, 85, 76, 0.62), 0 0 4px rgba(255, 213, 204, 0.34);
+}
+
+body[data-theme="retro-red-led"] .lyric-unit.is-near { opacity: 0.88; }
+body[data-theme="retro-red-led"] .lyric-unit.is-far { opacity: 0.48; }
+
