@@ -4,7 +4,7 @@
   - Define the four theme ids, package metadata, and family membership clearly.
   - Organize the repo so theme assets and editable/generated source artifacts do not get mixed together.
 
-- [ ] 2. Create four distinct generated font families, one per retro theme.
+- [x] 2. Create four distinct generated font families, one per retro theme.
   - Generate Latin + Hebrew minimum glyph coverage for:
     - red LED
     - cyan VFD
