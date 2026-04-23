@@ -17,7 +17,7 @@
   - Implement theme-owned CSS/assets for each retro theme.
   - Keep the four themes visually distinct rather than reducing them to palette swaps.
 
-- [ ] 4. Define and generate one theme-only retro bundle containing exactly the four themes together.
+- [x] 4. Define and generate one theme-only retro bundle containing exactly the four themes together.
   - Keep the bundle free of adapters and addon runtime behavior.
   - Keep the same logical bundle suitable for both preinstalled and later install-on-demand flows.
 

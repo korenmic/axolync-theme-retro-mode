@@ -2,38 +2,67 @@
   "bundleId": "retro-mode-bundle",
   "bundleName": "Retro Mode Theme Bundle",
   "version": "0.1.0",
+  "contractsVersion": "2.0.0",
   "familyId": "retro-mode",
   "themes": [
     {
       "id": "retro-red-led",
       "name": "Retro Red LED",
+      "description": "A deep red segmented-display theme with dashboard glow and scanline-rich karaoke contrast.",
+      "version": "0.1.0",
       "visualDirection": "segmented-red-led",
       "stylesheetPath": "themes/retro-red-led/theme.css",
       "assetRoot": "themes/retro-red-led/assets",
+      "assetSlotPaths": {
+        "app-shell-backdrop": "themes/retro-red-led/assets/app-shell-backdrop.svg",
+        "hero-brand-mark": "themes/retro-red-led/assets/hero-brand-mark.svg"
+      },
+      "fontPath": "themes/retro-red-led/fonts/retro-red-led.ttf",
       "fontFamily": "Axolync Retro Red LED"
     },
     {
       "id": "retro-cyan-vfd",
       "name": "Retro Cyan VFD",
+      "description": "A cool vacuum-fluorescent display theme with bright cyan glow and thin segmented chrome.",
+      "version": "0.1.0",
       "visualDirection": "segmented-cyan-vfd",
       "stylesheetPath": "themes/retro-cyan-vfd/theme.css",
       "assetRoot": "themes/retro-cyan-vfd/assets",
+      "assetSlotPaths": {
+        "app-shell-backdrop": "themes/retro-cyan-vfd/assets/app-shell-backdrop.svg",
+        "hero-brand-mark": "themes/retro-cyan-vfd/assets/hero-brand-mark.svg"
+      },
+      "fontPath": "themes/retro-cyan-vfd/fonts/retro-cyan-vfd.ttf",
       "fontFamily": "Axolync Retro Cyan VFD"
     },
     {
       "id": "retro-arcade-crt",
       "name": "Retro Arcade CRT",
+      "description": "An arcade cabinet theme with pixel UI chrome, starfield backdrop, and CRT glow.",
+      "version": "0.1.0",
       "visualDirection": "arcade-crt",
       "stylesheetPath": "themes/retro-arcade-crt/theme.css",
       "assetRoot": "themes/retro-arcade-crt/assets",
+      "assetSlotPaths": {
+        "app-shell-backdrop": "themes/retro-arcade-crt/assets/app-shell-backdrop.svg",
+        "hero-brand-mark": "themes/retro-arcade-crt/assets/hero-brand-mark.svg"
+      },
+      "fontPath": "themes/retro-arcade-crt/fonts/retro-arcade-crt.ttf",
       "fontFamily": "Axolync Retro Arcade CRT"
     },
     {
       "id": "retro-cockpit-hud",
       "name": "Retro Cockpit HUD",
+      "description": "A cockpit-inspired HUD theme with instrument-panel framing and luminous cyan emphasis.",
+      "version": "0.1.0",
       "visualDirection": "cockpit-hud",
       "stylesheetPath": "themes/retro-cockpit-hud/theme.css",
       "assetRoot": "themes/retro-cockpit-hud/assets",
+      "assetSlotPaths": {
+        "app-shell-backdrop": "themes/retro-cockpit-hud/assets/app-shell-backdrop.svg",
+        "hero-brand-mark": "themes/retro-cockpit-hud/assets/hero-brand-mark.svg"
+      },
+      "fontPath": "themes/retro-cockpit-hud/fonts/retro-cockpit-hud.ttf",
       "fontFamily": "Axolync Retro Cockpit HUD"
     }
   ]

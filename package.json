@@ -9,6 +9,7 @@
     "package": "npm run build:fonts && npm run build:bundle"
   },
   "dependencies": {
+    "fflate": "^0.8.2",
     "opentype.js": "^1.3.4"
   }
 }
