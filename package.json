@@ -1,0 +1,15 @@
+{
+  "name": "axolync-theme-retro-mode",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:fonts": "node scripts/build-fonts.mjs",
+    "build:bundle": "node scripts/build-bundle.mjs",
+    "package": "npm run build:fonts && npm run build:bundle"
+  },
+  "dependencies": {
+    "fflate": "^0.8.2",
+    "opentype.js": "^1.3.4"
+  }
+}

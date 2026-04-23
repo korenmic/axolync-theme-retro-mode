@@ -1,0 +1,125 @@
+@font-face {
+  font-family: "Axolync Retro Arcade CRT";
+  src: url("themes/retro-arcade-crt/fonts/retro-arcade-crt.ttf") format("truetype");
+}
+
+body[data-theme="retro-arcade-crt"] {
+  --app-bg: #070a12;
+  --app-text: #f0f4ff;
+  --app-font: "Axolync Retro Arcade CRT", "Courier New", monospace;
+  --lyric-font: "Axolync Retro Arcade CRT", "Courier New", monospace;
+  --surface-1: rgba(7, 12, 27, 0.86);
+  --surface-2: rgba(5, 9, 18, 0.94);
+  --surface-3: rgba(16, 24, 44, 0.96);
+  --border: rgba(96, 154, 255, 0.28);
+  --muted: #a6b0cf;
+  --accent-ready: #6bff96;
+  --accent-paused: #ffd96c;
+  --accent-loading: #81a8ff;
+  --accent-word: #ff9c50;
+  --accent-syncloss: #ff6d5f;
+  --overlay-gradient: linear-gradient(90deg, rgba(3, 5, 12, 0.1) 0%, rgba(11, 17, 31, 0.5) 65%, rgba(5, 8, 15, 0.82) 100%);
+  --status-ready-bg: rgba(11, 46, 27, 0.9);
+  --status-paused-bg: rgba(69, 43, 8, 0.9);
+  --status-syncloss-bg: rgba(67, 19, 12, 0.9);
+  --shadow-elevated: 0 16px 38px rgba(0, 0, 0, 0.44);
+  --ambient-top: radial-gradient(circle at 50% 0%, rgba(71, 123, 255, 0.12), transparent 58%);
+  --ambient-bottom: linear-gradient(180deg, transparent 0%, rgba(9, 12, 25, 0.74) 100%);
+}
+
+body[data-theme="retro-arcade-crt"]::before {
+  background:
+    linear-gradient(180deg, rgba(2, 4, 11, 0.1) 0%, rgba(3, 6, 14, 0.48) 100%),
+    url("themes/retro-arcade-crt/assets/app-shell-backdrop.svg");
+  background-size: cover;
+  background-position: center;
+}
+
+body[data-theme="retro-arcade-crt"]::after { background: var(--ambient-bottom); }
+
+body[data-theme="retro-arcade-crt"] #status-bar,
+body[data-theme="retro-arcade-crt"] #controls,
+body[data-theme="retro-arcade-crt"] #progress-bar-top-host,
+body[data-theme="retro-arcade-crt"] #progress-bar-bottom-host,
+body[data-theme="retro-arcade-crt"] .modal-content,
+body[data-theme="retro-arcade-crt"] .plugin-item,
+body[data-theme="retro-arcade-crt"] .plugin-settings-inline,
+body[data-theme="retro-arcade-crt"] .plugin-group,
+body[data-theme="retro-arcade-crt"] .theme-mode,
+body[data-theme="retro-arcade-crt"] .state-hero,
+body[data-theme="retro-arcade-crt"] .loading-state {
+  background: linear-gradient(180deg, rgba(12, 20, 39, 0.9), rgba(6, 10, 20, 0.96));
+  border: 2px solid rgba(110, 164, 255, 0.18);
+  box-shadow: var(--shadow-elevated), inset 0 0 0 1px rgba(255, 178, 89, 0.08);
+}
+
+body[data-theme="retro-arcade-crt"] .song-meta-fixed,
+body[data-theme="retro-arcade-crt"] .lyrics-container {
+  background: linear-gradient(180deg, rgba(8, 14, 28, 0.88), rgba(6, 10, 20, 0.96));
+  border: 2px solid rgba(130, 171, 255, 0.16);
+  box-shadow: inset 0 0 0 1px rgba(255, 180, 104, 0.07), 0 0 20px rgba(123, 171, 255, 0.08);
+}
+
+body[data-theme="retro-arcade-crt"] .song-meta-fixed::after {
+  content: "";
+  position: absolute;
+  right: 1rem;
+  top: 0.8rem;
+  width: 3.1rem;
+  height: 3.1rem;
+  background: url("themes/retro-arcade-crt/assets/hero-brand-mark.svg") center/contain no-repeat;
+  opacity: 0.36;
+  pointer-events: none;
+}
+
+body[data-theme="retro-arcade-crt"] button:not(:disabled),
+body[data-theme="retro-arcade-crt"] select,
+body[data-theme="retro-arcade-crt"] input,
+body[data-theme="retro-arcade-crt"] textarea,
+body[data-theme="retro-arcade-crt"] .song-meta-fixed,
+body[data-theme="retro-arcade-crt"] .lyric-unit,
+body[data-theme="retro-arcade-crt"] .state-message {
+  font-family: var(--lyric-font);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+body[data-theme="retro-arcade-crt"] button:not(:disabled) {
+  background: linear-gradient(180deg, rgba(19, 29, 58, 1), rgba(11, 17, 34, 1));
+  color: var(--app-text);
+  border: 2px solid rgba(255, 165, 84, 0.18);
+}
+
+body[data-theme="retro-arcade-crt"] .progress-bar__track {
+  background: rgba(8, 14, 27, 0.96);
+  border-color: rgba(103, 153, 255, 0.2);
+}
+
+body[data-theme="retro-arcade-crt"] .progress-bar__bump,
+body[data-theme="retro-arcade-crt"] .progress-bar__cursor {
+  background: #ff9752;
+  box-shadow: 0 0 10px rgba(255, 151, 82, 0.48);
+}
+
+body[data-theme="retro-arcade-crt"] .lyrics-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.028) 0 1px, transparent 1px 5px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, transparent 25%);
+  mix-blend-mode: screen;
+}
+
+body[data-theme="retro-arcade-crt"] .lyric-unit {
+  color: #c7d1ea;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.42), 0 0 8px rgba(111, 162, 255, 0.12);
+}
+
+body[data-theme="retro-arcade-crt"] .lyric-unit.active,
+body[data-theme="retro-arcade-crt"] .lyric-unit.active .lyric-line-text {
+  color: #ffb16b;
+  text-shadow: 0 0 0 rgba(0, 0, 0, 0), 0 0 12px rgba(255, 157, 93, 0.34);
+}
+

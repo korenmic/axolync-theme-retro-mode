@@ -1,0 +1,132 @@
+@font-face {
+  font-family: "Axolync Retro Cyan VFD";
+  src: url("themes/retro-cyan-vfd/fonts/retro-cyan-vfd.ttf") format("truetype");
+}
+
+body[data-theme="retro-cyan-vfd"] {
+  --app-bg: #021315;
+  --app-text: #d8fffe;
+  --app-font: "Axolync Retro Cyan VFD", "Courier New", monospace;
+  --lyric-font: "Axolync Retro Cyan VFD", "Courier New", monospace;
+  --surface-1: rgba(2, 29, 32, 0.84);
+  --surface-2: rgba(3, 19, 21, 0.92);
+  --surface-3: rgba(5, 37, 40, 0.96);
+  --border: rgba(83, 255, 246, 0.28);
+  --muted: #7eb6b3;
+  --accent-ready: #47fff4;
+  --accent-paused: #f2e08f;
+  --accent-loading: #4cfff7;
+  --accent-word: #72ffff;
+  --accent-syncloss: #ffa96d;
+  --overlay-gradient: linear-gradient(90deg, rgba(2, 12, 14, 0.12) 0%, rgba(3, 20, 23, 0.58) 68%, rgba(1, 8, 10, 0.82) 100%);
+  --status-ready-bg: rgba(7, 42, 41, 0.92);
+  --status-paused-bg: rgba(63, 54, 21, 0.9);
+  --status-syncloss-bg: rgba(72, 28, 10, 0.88);
+  --shadow-elevated: 0 14px 36px rgba(0, 0, 0, 0.4);
+  --ambient-top: radial-gradient(circle at 50% 0%, rgba(68, 255, 244, 0.16), transparent 55%);
+  --ambient-bottom: linear-gradient(180deg, transparent 0%, rgba(2, 20, 21, 0.78) 100%);
+}
+
+body[data-theme="retro-cyan-vfd"]::before {
+  background:
+    linear-gradient(180deg, rgba(3, 17, 19, 0.08) 0%, rgba(2, 12, 14, 0.4) 100%),
+    var(--ambient-top),
+    url("themes/retro-cyan-vfd/assets/app-shell-backdrop.svg");
+  background-size: cover;
+  background-position: center;
+}
+
+body[data-theme="retro-cyan-vfd"]::after { background: var(--ambient-bottom); }
+
+body[data-theme="retro-cyan-vfd"] #status-bar,
+body[data-theme="retro-cyan-vfd"] #controls,
+body[data-theme="retro-cyan-vfd"] #progress-bar-top-host,
+body[data-theme="retro-cyan-vfd"] #progress-bar-bottom-host,
+body[data-theme="retro-cyan-vfd"] .modal-content,
+body[data-theme="retro-cyan-vfd"] .plugin-item,
+body[data-theme="retro-cyan-vfd"] .plugin-settings-inline,
+body[data-theme="retro-cyan-vfd"] .plugin-group,
+body[data-theme="retro-cyan-vfd"] .theme-mode,
+body[data-theme="retro-cyan-vfd"] .state-hero,
+body[data-theme="retro-cyan-vfd"] .loading-state {
+  background: linear-gradient(180deg, rgba(5, 37, 40, 0.84), rgba(3, 19, 21, 0.94));
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-elevated), inset 0 0 0 1px rgba(77, 255, 247, 0.06);
+  backdrop-filter: blur(4px);
+}
+
+body[data-theme="retro-cyan-vfd"] .song-meta-fixed,
+body[data-theme="retro-cyan-vfd"] .lyrics-container {
+  background: linear-gradient(180deg, rgba(6, 40, 43, 0.82), rgba(3, 19, 21, 0.96));
+  border: 1px solid rgba(83, 255, 246, 0.22);
+  box-shadow: 0 0 24px rgba(73, 255, 244, 0.08), inset 0 0 0 1px rgba(201, 255, 251, 0.03);
+}
+
+body[data-theme="retro-cyan-vfd"] .song-meta-fixed::after {
+  content: "";
+  position: absolute;
+  right: 0.9rem;
+  top: 0.75rem;
+  width: 3rem;
+  height: 3rem;
+  background: url("themes/retro-cyan-vfd/assets/hero-brand-mark.svg") center/contain no-repeat;
+  opacity: 0.28;
+  pointer-events: none;
+}
+
+body[data-theme="retro-cyan-vfd"] button:not(:disabled),
+body[data-theme="retro-cyan-vfd"] select,
+body[data-theme="retro-cyan-vfd"] input,
+body[data-theme="retro-cyan-vfd"] textarea {
+  font-family: var(--app-font);
+  letter-spacing: 0.07em;
+}
+
+body[data-theme="retro-cyan-vfd"] button:not(:disabled) {
+  background: linear-gradient(180deg, rgba(6, 49, 52, 0.96), rgba(4, 25, 27, 0.96));
+  color: var(--app-text);
+  border: 1px solid rgba(71, 255, 244, 0.24);
+  box-shadow: 0 0 16px rgba(71, 255, 244, 0.08), inset 0 0 0 1px rgba(171, 255, 250, 0.06);
+  text-transform: uppercase;
+}
+
+body[data-theme="retro-cyan-vfd"] .progress-bar__track {
+  background: rgba(5, 32, 35, 0.92);
+  border-color: rgba(77, 255, 247, 0.2);
+}
+
+body[data-theme="retro-cyan-vfd"] .progress-bar__bump,
+body[data-theme="retro-cyan-vfd"] .progress-bar__cursor {
+  background: #57fff6;
+  box-shadow: 0 0 12px rgba(85, 255, 245, 0.5);
+}
+
+body[data-theme="retro-cyan-vfd"] .lyrics-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(180deg, rgba(83, 255, 246, 0.03) 0 1px, transparent 1px 7px),
+    linear-gradient(180deg, rgba(182, 255, 252, 0.05) 0%, transparent 20%);
+}
+
+body[data-theme="retro-cyan-vfd"] .song-meta-fixed,
+body[data-theme="retro-cyan-vfd"] .lyric-unit,
+body[data-theme="retro-cyan-vfd"] .state-message {
+  font-family: var(--lyric-font);
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+body[data-theme="retro-cyan-vfd"] .lyric-unit {
+  color: #9ce2de;
+  text-shadow: 0 0 10px rgba(87, 255, 246, 0.14);
+}
+
+body[data-theme="retro-cyan-vfd"] .lyric-unit.active,
+body[data-theme="retro-cyan-vfd"] .lyric-unit.active .lyric-line-text {
+  color: #5cfff7;
+  text-shadow: 0 0 18px rgba(87, 255, 246, 0.62), 0 0 5px rgba(227, 255, 253, 0.35);
+}
+
