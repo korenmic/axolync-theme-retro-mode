@@ -1,0 +1,40 @@
+{
+  "bundleId": "retro-mode-bundle",
+  "bundleName": "Retro Mode Theme Bundle",
+  "version": "0.1.0",
+  "familyId": "retro-mode",
+  "themes": [
+    {
+      "id": "retro-red-led",
+      "name": "Retro Red LED",
+      "visualDirection": "segmented-red-led",
+      "stylesheetPath": "themes/retro-red-led/theme.css",
+      "assetRoot": "themes/retro-red-led/assets",
+      "fontFamily": "Axolync Retro Red LED"
+    },
+    {
+      "id": "retro-cyan-vfd",
+      "name": "Retro Cyan VFD",
+      "visualDirection": "segmented-cyan-vfd",
+      "stylesheetPath": "themes/retro-cyan-vfd/theme.css",
+      "assetRoot": "themes/retro-cyan-vfd/assets",
+      "fontFamily": "Axolync Retro Cyan VFD"
+    },
+    {
+      "id": "retro-arcade-crt",
+      "name": "Retro Arcade CRT",
+      "visualDirection": "arcade-crt",
+      "stylesheetPath": "themes/retro-arcade-crt/theme.css",
+      "assetRoot": "themes/retro-arcade-crt/assets",
+      "fontFamily": "Axolync Retro Arcade CRT"
+    },
+    {
+      "id": "retro-cockpit-hud",
+      "name": "Retro Cockpit HUD",
+      "visualDirection": "cockpit-hud",
+      "stylesheetPath": "themes/retro-cockpit-hud/theme.css",
+      "assetRoot": "themes/retro-cockpit-hud/assets",
+      "fontFamily": "Axolync Retro Cockpit HUD"
+    }
+  ]
+}

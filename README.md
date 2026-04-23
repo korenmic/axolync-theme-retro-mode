@@ -1,23 +1,34 @@
 # Axolync Retro Mode Theme Repo
 
-This repo is the planned home for Axolync's retro karaoke-display theme family.
+This repo is the source of truth for Axolync's `retro-mode` theme family.
 
-Intended scope:
+The family currently contains exactly four themes:
 
-- four retro visual directions:
-  - segmented red LED
-  - segmented cyan VFD
-  - arcade CRT / pixel
-  - cockpit hybrid
-- no adapters
-- no controller logic
-- one theme-family repo that can eventually publish:
-  - individual installable theme packages
-  - and/or one installable theme-only pack containing the four retro themes
+- `retro-red-led`
+- `retro-cyan-vfd`
+- `retro-arcade-crt`
+- `retro-cockpit-hud`
 
-The goal is to keep retro visuals as real theme-owned assets and packaging truth, instead of scattering them across browser convenience files.
+Repo scope:
 
-Current state:
+- generated font assets and their editable source artifacts
+- retro shell art and decorative assets
+- per-theme metadata and stylesheets
+- one theme-only bundle containing the four themes together
 
-- repo scaffold only
-- initial seeds live under `docs/project-seeds/`
+Out of scope:
+
+- adapters
+- addon runtime logic
+- controller behavior
+- browser runtime/theme-selection code
+- builder publication/report logic
+
+Directory layout:
+
+- `src/themes/` - theme metadata and runtime-facing styles/assets
+- `src/font-src/` - editable/generated glyph source artifacts
+- `scripts/` - font and bundle generation
+- `artifacts/output/` - generated bundle outputs and visual proof
+
+The first implementation pass targets visuals that feel as close as practical to the approved mockups while keeping Latin + Hebrew readable.

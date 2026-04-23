@@ -1,6 +1,6 @@
 # Implementation Plan
 
-- [ ] 1. Scaffold the retro theme repo as the source of truth for the four retro themes.
+- [x] 1. Scaffold the retro theme repo as the source of truth for the four retro themes.
   - Define the four theme ids, package metadata, and family membership clearly.
   - Organize the repo so theme assets and editable/generated source artifacts do not get mixed together.
 
