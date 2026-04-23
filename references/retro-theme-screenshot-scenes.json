@@ -1,0 +1,141 @@
+{
+  "version": 1,
+  "viewport": {
+    "width": 1536,
+    "height": 960
+  },
+  "scenes": [
+    {
+      "id": "retro-red-led-showcase",
+      "themeId": "retro-red-led",
+      "title": "Retro Red LED Showcase",
+      "song": {
+        "title": "Signal Runner",
+        "artist": "Axolync Arcade"
+      },
+      "lyrics": {
+        "script": "latin",
+        "lines": [
+          "NEON PULSE ALIVE",
+          "STATIC HEAT RETURNS",
+          "HOLD THE BEAT"
+        ]
+      },
+      "hebrewLyrics": {
+        "script": "hebrew",
+        "lines": [
+          "אור דיגיטלי חוזר",
+          "הקצב בוער הלילה",
+          "שמור על הביט"
+        ]
+      },
+      "status": "ready",
+      "progressFraction": 0.42,
+      "visualTargets": [
+        "deep dashboard red glow",
+        "segmented-display typography",
+        "subtle scanline texture",
+        "dark instrument-like shell panels"
+      ]
+    },
+    {
+      "id": "retro-cyan-vfd-showcase",
+      "themeId": "retro-cyan-vfd",
+      "title": "Retro Cyan VFD Showcase",
+      "song": {
+        "title": "Midnight Console",
+        "artist": "Future Memory"
+      },
+      "lyrics": {
+        "script": "latin",
+        "lines": [
+          "VACUUM LIGHTS AWAKE",
+          "QUIET SIGNALS SHINE",
+          "FOLLOW THE FRAME"
+        ]
+      },
+      "hebrewLyrics": {
+        "script": "hebrew",
+        "lines": [
+          "צג טורקיז נדלק",
+          "אות שקט מאיר",
+          "לך עם המסגרת"
+        ]
+      },
+      "status": "ready",
+      "progressFraction": 0.58,
+      "visualTargets": [
+        "bright cyan VFD feel",
+        "thin segmented glyphs",
+        "glassy dark shell surfaces",
+        "cool fluorescent glow without losing readability"
+      ]
+    },
+    {
+      "id": "retro-arcade-crt-showcase",
+      "themeId": "retro-arcade-crt",
+      "title": "Retro Arcade CRT Showcase",
+      "song": {
+        "title": "Pixel Departure",
+        "artist": "Insert Coin"
+      },
+      "lyrics": {
+        "script": "latin",
+        "lines": [
+          "PRESS START TONIGHT",
+          "STARFIELD MOTION RUNS",
+          "LEVEL UP THE CHORUS"
+        ]
+      },
+      "hebrewLyrics": {
+        "script": "hebrew",
+        "lines": [
+          "לחץ התחל הלילה",
+          "שדה כוכבים זז",
+          "עלה שלב בפזמון"
+        ]
+      },
+      "status": "ready",
+      "progressFraction": 0.66,
+      "visualTargets": [
+        "pixel-art framing",
+        "arcade cabinet contrast",
+        "CRT scanline softness",
+        "playful bright accent against dark space backdrop"
+      ]
+    },
+    {
+      "id": "retro-cockpit-hud-showcase",
+      "themeId": "retro-cockpit-hud",
+      "title": "Retro Cockpit HUD Showcase",
+      "song": {
+        "title": "Vector Horizon",
+        "artist": "Night Pilot"
+      },
+      "lyrics": {
+        "script": "latin",
+        "lines": [
+          "LOCK THE ROUTE IN VIEW",
+          "SYSTEMS GLOW AHEAD",
+          "STAY ON TARGET"
+        ]
+      },
+      "hebrewLyrics": {
+        "script": "hebrew",
+        "lines": [
+          "נעל את המסלול",
+          "המערכות זוהרות",
+          "שמור על היעד"
+        ]
+      },
+      "status": "ready",
+      "progressFraction": 0.74,
+      "visualTargets": [
+        "cockpit framing and beveled instrument panels",
+        "HUD cyan highlight energy",
+        "angular chrome with calm dark background",
+        "readable hybrid Hebrew despite the HUD styling"
+      ]
+    }
+  ]
+}

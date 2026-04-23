@@ -21,6 +21,6 @@
   - Keep the bundle free of adapters and addon runtime behavior.
   - Keep the same logical bundle suitable for both preinstalled and later install-on-demand flows.
 
-- [ ] 5. Add repo-owned proof artifacts that support later browser screenshot acceptance.
+- [x] 5. Add repo-owned proof artifacts that support later browser screenshot acceptance.
   - Keep stable theme ids, asset names, and any visual references needed for screenshot comparisons.
   - Make later Playwright/browser proof practical instead of fragile.
