@@ -25,7 +25,7 @@
   - Keep stable theme ids, asset names, and any visual references needed for screenshot comparisons.
   - Make later Playwright/browser proof practical instead of fragile.
 
-- [ ] 6. Add TOML-toggleable detailed mock-inspired background images for all four retro themes.
+- [x] 6. Add TOML-toggleable detailed mock-inspired background images for all four retro themes.
   - Add retro-repo bundler TOML authority that controls whether enhanced detailed background assets are emitted/enabled for the four retro themes.
   - Default the enhanced backgrounds to enabled, while preserving an explicit off path that returns the themes to their current lighter CSS/SVG backdrop behavior.
   - Create one detailed background image/asset per theme that moves the final look closer to the original mock directions:

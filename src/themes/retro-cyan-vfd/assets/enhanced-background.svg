@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="core" cx=".5" cy=".18" r=".8">
+      <stop offset="0" stop-color="#10565a"/>
+      <stop offset=".55" stop-color="#052428"/>
+      <stop offset="1" stop-color="#010c0e"/>
+    </radialGradient>
+    <filter id="cyanGlow">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="mesh" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M0 18h36M18 0v36" stroke="#65fff7" stroke-opacity=".045"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#core)"/>
+  <rect width="1600" height="1000" fill="url(#mesh)"/>
+  <g opacity=".34" filter="url(#cyanGlow)">
+    <rect x="90" y="74" width="1420" height="160" rx="18" fill="#031c20" stroke="#55fff5" stroke-width="4"/>
+    <path d="M172 132h152m42 0h152m42 0h152m42 0h152m42 0h152m42 0h152" stroke="#46fff4" stroke-width="20" stroke-linecap="round" stroke-dasharray="70 45"/>
+    <path d="M172 184h152m42 0h152m42 0h152m42 0h152m42 0h152m42 0h152" stroke="#46fff4" stroke-width="14" stroke-linecap="round" stroke-dasharray="50 62"/>
+  </g>
+  <g opacity=".24" filter="url(#cyanGlow)">
+    <rect x="220" y="328" width="1160" height="360" rx="28" fill="#02171b" stroke="#55fff5" stroke-width="3"/>
+    <path d="M280 390h1040M280 628h1040" stroke="#55fff5" stroke-width="4" stroke-opacity=".42"/>
+    <path d="M360 456h150v100h-150zM584 456h150v100h-150zM808 456h150v100h-150zM1032 456h150v100h-150z" fill="none" stroke="#55fff5" stroke-width="12" stroke-dasharray="54 22"/>
+  </g>
+  <g opacity=".16">
+    <text x="800" y="838" text-anchor="middle" fill="#8efff8" font-family="monospace" font-size="42" letter-spacing="12">VACUUM FLUORESCENT PANEL</text>
+  </g>
+</svg>

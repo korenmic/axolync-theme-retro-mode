@@ -40,6 +40,18 @@ body[data-theme="retro-red-led"]::after {
   background: var(--ambient-bottom);
 }
 
+/* axolync-enhanced-background:start */
+body[data-theme="retro-red-led"]::before {
+  background:
+    linear-gradient(180deg, rgba(14, 2, 3, 0.02) 0%, rgba(8, 1, 2, 0.34) 100%),
+    url("themes/retro-red-led/assets/enhanced-background.svg"),
+    var(--ambient-top),
+    url("themes/retro-red-led/assets/app-shell-backdrop.svg");
+  background-size: cover, cover, cover, cover;
+  background-position: center, center, center, center;
+}
+/* axolync-enhanced-background:end */
+
 body[data-theme="retro-red-led"] #status-bar,
 body[data-theme="retro-red-led"] #controls,
 body[data-theme="retro-red-led"] #progress-bar-top-host,
@@ -151,4 +163,3 @@ body[data-theme="retro-red-led"] .lyric-unit.active .lyric-line-text {
 
 body[data-theme="retro-red-led"] .lyric-unit.is-near { opacity: 0.88; }
 body[data-theme="retro-red-led"] .lyric-unit.is-far { opacity: 0.48; }
-

@@ -1,0 +1,4 @@
+[visuals]
+# Detailed mock-inspired decorative backgrounds are enabled by default.
+# Set to false to return the bundle to the lighter CSS/SVG backdrop mode.
+enhanced_backgrounds = true

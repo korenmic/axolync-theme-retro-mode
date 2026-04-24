@@ -14,7 +14,21 @@ import {
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-const outputDir = path.join(ROOT, 'artifacts', 'output', 'installable');
+const args = process.argv.slice(2);
+
+function readArgValue(name) {
+  const index = args.indexOf(name);
+  return index >= 0 ? args[index + 1] : undefined;
+}
+
+const configPath = path.resolve(
+  ROOT,
+  readArgValue('--config') || process.env.RETRO_BUNDLE_CONFIG || path.join('config', 'retro-bundle.toml'),
+);
+const outputDir = path.resolve(
+  ROOT,
+  readArgValue('--output-dir') || process.env.RETRO_BUNDLE_OUTPUT_DIR || path.join('artifacts', 'output', 'installable'),
+);
 const bundleZipPath = path.join(outputDir, `${RETRO_BUNDLE_ID}.zip`);
 const bundleManifestPath = path.join(outputDir, `${RETRO_BUNDLE_ID}.manifest.json`);
 const bundleContentsPath = path.join(outputDir, `${RETRO_BUNDLE_ID}.contents.json`);
@@ -29,8 +43,42 @@ function readRequiredFile(relativePath) {
   return fs.readFileSync(absolutePath);
 }
 
-function buildThemeMember(theme) {
-  const assetPaths = Object.values(theme.assetSlotPaths);
+function readBundleOptions() {
+  const fallback = { enhancedBackgrounds: true, configPath };
+  if (!fs.existsSync(configPath)) {
+    return fallback;
+  }
+
+  const text = fs.readFileSync(configPath, 'utf8');
+  const match = text.match(/^\s*enhanced_backgrounds\s*=\s*(true|false)\s*$/im);
+  return {
+    enhancedBackgrounds: match ? match[1] === 'true' : true,
+    configPath,
+  };
+}
+
+function stripEnhancedBackgroundBlocks(cssText) {
+  return cssText.replace(
+    /\/\*\s*axolync-enhanced-background:start\s*\*\/[\s\S]*?\/\*\s*axolync-enhanced-background:end\s*\*\//g,
+    '',
+  );
+}
+
+function readThemeCss(theme, options) {
+  const cssText = readRequiredFile(path.join('src', theme.stylesheetPath)).toString('utf8');
+  return Buffer.from(options.enhancedBackgrounds ? cssText : stripEnhancedBackgroundBlocks(cssText));
+}
+
+function buildThemeAssetSlots(theme, options) {
+  return {
+    ...theme.assetSlotPaths,
+    ...(options.enhancedBackgrounds ? { 'enhanced-background': theme.enhancedBackgroundPath } : {}),
+  };
+}
+
+function buildThemeMember(theme, options) {
+  const assetSlots = buildThemeAssetSlots(theme, options);
+  const assetPaths = Object.values(assetSlots);
   return {
     theme_id: theme.id,
     name: theme.name,
@@ -44,11 +92,16 @@ function buildThemeMember(theme) {
     visual_direction: theme.visualDirection,
     stylesheet_path: theme.stylesheetPath,
     asset_paths: assetPaths,
-    asset_slots: theme.assetSlotPaths,
+    asset_slots: assetSlots,
+    visual_options: {
+      enhanced_backgrounds: options.enhancedBackgrounds,
+    },
     font_paths: [theme.fontPath],
     font_family: theme.fontFamily,
   };
 }
+
+const bundleOptions = readBundleOptions();
 
 const bundleManifest = {
   theme_bundle: {
@@ -61,7 +114,10 @@ const bundleManifest = {
     delivery_modes: ['preinstalled', 'installable-zip'],
     contains_addons: false,
     contains_adapters: false,
-    themes: RETRO_THEMES.map(buildThemeMember),
+    visual_options: {
+      enhanced_backgrounds: bundleOptions.enhancedBackgrounds,
+    },
+    themes: RETRO_THEMES.map((theme) => buildThemeMember(theme, bundleOptions)),
   },
 };
 
@@ -73,12 +129,12 @@ const zipEntries = {
 const zipContentIndex = [];
 
 for (const theme of RETRO_THEMES) {
-  const bundleMember = buildThemeMember(theme);
+  const bundleMember = buildThemeMember(theme, bundleOptions);
   const memberThemeCssPath = theme.stylesheetPath;
   const memberFontPath = theme.fontPath;
-  const memberAssetPaths = Object.values(theme.assetSlotPaths);
+  const memberAssetPaths = Object.values(buildThemeAssetSlots(theme, bundleOptions));
 
-  zipEntries[memberThemeCssPath] = readRequiredFile(path.join('src', memberThemeCssPath));
+  zipEntries[memberThemeCssPath] = readThemeCss(theme, bundleOptions);
   zipEntries[memberFontPath] = readRequiredFile(path.join('src', 'fonts', theme.id, `${theme.id}.ttf`));
 
   for (const assetPath of memberAssetPaths) {
@@ -102,6 +158,8 @@ fs.writeFileSync(bundleManifestPath, JSON.stringify(bundleManifest, null, 2));
 fs.writeFileSync(bundleContentsPath, JSON.stringify({
   bundleId: RETRO_BUNDLE_ID,
   generatedAt: new Date().toISOString(),
+  configPath: path.relative(ROOT, bundleOptions.configPath).replace(/\\/g, '/'),
+  enhancedBackgrounds: bundleOptions.enhancedBackgrounds,
   entries: Object.keys(zipEntries).sort(),
   themes: zipContentIndex,
 }, null, 2));

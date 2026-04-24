@@ -38,6 +38,18 @@ body[data-theme="retro-cockpit-hud"]::before {
 
 body[data-theme="retro-cockpit-hud"]::after { background: var(--ambient-bottom); }
 
+/* axolync-enhanced-background:start */
+body[data-theme="retro-cockpit-hud"]::before {
+  background:
+    linear-gradient(180deg, rgba(4, 8, 13, 0.02) 0%, rgba(2, 5, 8, 0.26) 100%),
+    url("themes/retro-cockpit-hud/assets/enhanced-background.svg"),
+    var(--ambient-top),
+    url("themes/retro-cockpit-hud/assets/app-shell-backdrop.svg");
+  background-size: cover, cover, cover, cover;
+  background-position: center, center, center, center;
+}
+/* axolync-enhanced-background:end */
+
 body[data-theme="retro-cockpit-hud"] #status-bar,
 body[data-theme="retro-cockpit-hud"] #controls,
 body[data-theme="retro-cockpit-hud"] #progress-bar-top-host,
@@ -123,4 +135,3 @@ body[data-theme="retro-cockpit-hud"] .lyric-unit.active .lyric-line-text {
   color: #8efef7;
   text-shadow: 0 0 18px rgba(142, 254, 247, 0.44), 0 0 5px rgba(255, 255, 255, 0.22);
 }
-

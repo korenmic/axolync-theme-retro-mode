@@ -38,6 +38,18 @@ body[data-theme="retro-cyan-vfd"]::before {
 
 body[data-theme="retro-cyan-vfd"]::after { background: var(--ambient-bottom); }
 
+/* axolync-enhanced-background:start */
+body[data-theme="retro-cyan-vfd"]::before {
+  background:
+    linear-gradient(180deg, rgba(3, 17, 19, 0.02) 0%, rgba(2, 12, 14, 0.28) 100%),
+    url("themes/retro-cyan-vfd/assets/enhanced-background.svg"),
+    var(--ambient-top),
+    url("themes/retro-cyan-vfd/assets/app-shell-backdrop.svg");
+  background-size: cover, cover, cover, cover;
+  background-position: center, center, center, center;
+}
+/* axolync-enhanced-background:end */
+
 body[data-theme="retro-cyan-vfd"] #status-bar,
 body[data-theme="retro-cyan-vfd"] #controls,
 body[data-theme="retro-cyan-vfd"] #progress-bar-top-host,
@@ -129,4 +141,3 @@ body[data-theme="retro-cyan-vfd"] .lyric-unit.active .lyric-line-text {
   color: #5cfff7;
   text-shadow: 0 0 18px rgba(87, 255, 246, 0.62), 0 0 5px rgba(227, 255, 253, 0.35);
 }
-

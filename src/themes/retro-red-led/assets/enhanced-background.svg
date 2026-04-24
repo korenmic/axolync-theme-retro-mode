@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#280507"/>
+      <stop offset="1" stop-color="#070101"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="scan" width="8" height="8" patternUnits="userSpaceOnUse">
+      <path d="M0 1h8" stroke="#ff5b50" stroke-opacity=".08"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <rect width="1600" height="1000" fill="url(#scan)"/>
+  <g opacity=".42" filter="url(#glow)">
+    <rect x="118" y="82" width="260" height="92" rx="14" fill="#270406" stroke="#ff3f38" stroke-width="5"/>
+    <rect x="1224" y="82" width="260" height="92" rx="14" fill="#270406" stroke="#ff3f38" stroke-width="5"/>
+    <rect x="478" y="114" width="642" height="70" rx="34" fill="#31080a" stroke="#ff5548" stroke-width="4"/>
+    <path d="M518 148h72m36 0h72m36 0h72m36 0h72m36 0h72" stroke="#ff6155" stroke-width="10" stroke-linecap="round" stroke-dasharray="28 20"/>
+  </g>
+  <g opacity=".2">
+    <path d="M0 168H1600M0 216H1600M0 748H1600M0 806H1600" stroke="#ff443e" stroke-width="7"/>
+    <path d="M180 312h1240M180 854h1240" stroke="#ff756d" stroke-width="2"/>
+  </g>
+  <g opacity=".25" filter="url(#glow)">
+    <path d="M84 760h250v-120h92v-135h92v-112h90" fill="none" stroke="#ff453f" stroke-width="44" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M1518 308h-250v120h-92v135h-92v112h-90" fill="none" stroke="#ff453f" stroke-width="44" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g opacity=".16">
+    <text x="800" y="930" text-anchor="middle" fill="#ff6a5f" font-family="monospace" font-size="44" letter-spacing="14">SEGMENT BOARD</text>
+  </g>
+</svg>

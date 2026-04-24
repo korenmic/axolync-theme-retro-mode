@@ -6,7 +6,8 @@
   "scripts": {
     "build:fonts": "node scripts/build-fonts.mjs",
     "build:bundle": "node scripts/build-bundle.mjs",
-    "package": "npm run build:fonts && npm run build:bundle"
+    "package": "npm run build:fonts && npm run build:bundle",
+    "test": "node scripts/verify-bundle.mjs"
   },
   "dependencies": {
     "fflate": "^0.8.2",

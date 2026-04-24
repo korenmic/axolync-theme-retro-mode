@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="space" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#02040a"/>
+      <stop offset=".5" stop-color="#080b15"/>
+      <stop offset="1" stop-color="#050710"/>
+    </linearGradient>
+    <filter id="soft">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#space)"/>
+  <g fill="#d8e8ff" opacity=".72">
+    <rect x="96" y="72" width="5" height="5"/><rect x="196" y="214" width="4" height="4"/><rect x="318" y="116" width="6" height="6"/>
+    <rect x="488" y="258" width="4" height="4"/><rect x="620" y="88" width="6" height="6"/><rect x="748" y="190" width="4" height="4"/>
+    <rect x="906" y="112" width="5" height="5"/><rect x="1050" y="260" width="6" height="6"/><rect x="1210" y="82" width="5" height="5"/>
+    <rect x="1390" y="216" width="4" height="4"/><rect x="1508" y="120" width="5" height="5"/><rect x="1320" y="392" width="4" height="4"/>
+  </g>
+  <path d="M0 732h1600v268H0z" fill="#090f1e"/>
+  <path d="M220 735l310-220h540l310 220z" fill="#161b24" stroke="#6fa4ff" stroke-opacity=".32" stroke-width="5"/>
+  <path d="M358 720l210-150h464l210 150z" fill="#202733" stroke="#ff9f50" stroke-opacity=".28" stroke-width="4"/>
+  <g opacity=".52">
+    <path d="M0 572l300 70 230 94H0zM1600 572l-300 70-230 94h530z" fill="#13203f"/>
+    <path d="M86 590l330 84M1514 590l-330 84" stroke="#edf4ff" stroke-width="9"/>
+    <path d="M102 612l316 78M1498 612l-316 78" stroke="#355fbc" stroke-width="6"/>
+  </g>
+  <g opacity=".45">
+    <rect x="620" y="650" width="360" height="126" rx="10" fill="#0b1426" stroke="#6da4ff" stroke-width="5"/>
+    <path d="M672 692h256M672 728h200" stroke="#4dff89" stroke-width="10" stroke-dasharray="24 14"/>
+    <text x="800" y="842" text-anchor="middle" fill="#ffad62" font-family="monospace" font-size="42" letter-spacing="10">CRT CABINET</text>
+  </g>
+  <ellipse cx="800" cy="514" rx="280" ry="34" fill="#4477ff" opacity=".12" filter="url(#soft)"/>
+</svg>

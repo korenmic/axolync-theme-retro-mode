@@ -37,6 +37,17 @@ body[data-theme="retro-arcade-crt"]::before {
 
 body[data-theme="retro-arcade-crt"]::after { background: var(--ambient-bottom); }
 
+/* axolync-enhanced-background:start */
+body[data-theme="retro-arcade-crt"]::before {
+  background:
+    linear-gradient(180deg, rgba(2, 4, 11, 0.02) 0%, rgba(3, 6, 14, 0.28) 100%),
+    url("themes/retro-arcade-crt/assets/enhanced-background.svg"),
+    url("themes/retro-arcade-crt/assets/app-shell-backdrop.svg");
+  background-size: cover, cover, cover;
+  background-position: center, center, center;
+}
+/* axolync-enhanced-background:end */
+
 body[data-theme="retro-arcade-crt"] #status-bar,
 body[data-theme="retro-arcade-crt"] #controls,
 body[data-theme="retro-arcade-crt"] #progress-bar-top-host,
@@ -122,4 +133,3 @@ body[data-theme="retro-arcade-crt"] .lyric-unit.active .lyric-line-text {
   color: #ffb16b;
   text-shadow: 0 0 0 rgba(0, 0, 0, 0), 0 0 12px rgba(255, 157, 93, 0.34);
 }
-

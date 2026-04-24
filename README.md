@@ -28,7 +28,10 @@ Directory layout:
 
 - `src/themes/` - theme metadata and runtime-facing styles/assets
 - `src/font-src/` - editable/generated glyph source artifacts
+- `config/retro-bundle.toml` - bundle-time visual knobs, including enhanced retro backgrounds
 - `scripts/` - font and bundle generation
 - `artifacts/output/` - generated bundle outputs and visual proof
 
 The first implementation pass targets visuals that feel as close as practical to the approved mockups while keeping Latin + Hebrew readable.
+
+Enhanced mock-inspired backgrounds are enabled by default. Set `enhanced_backgrounds = false` in `config/retro-bundle.toml` to package the lighter original backdrop mode instead.
