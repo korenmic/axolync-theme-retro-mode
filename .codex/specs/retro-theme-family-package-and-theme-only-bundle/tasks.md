@@ -24,3 +24,15 @@
 - [x] 5. Add repo-owned proof artifacts that support later browser screenshot acceptance.
   - Keep stable theme ids, asset names, and any visual references needed for screenshot comparisons.
   - Make later Playwright/browser proof practical instead of fragile.
+
+- [ ] 6. Add TOML-toggleable detailed mock-inspired background images for all four retro themes.
+  - Add retro-repo bundler TOML authority that controls whether enhanced detailed background assets are emitted/enabled for the four retro themes.
+  - Default the enhanced backgrounds to enabled, while preserving an explicit off path that returns the themes to their current lighter CSS/SVG backdrop behavior.
+  - Create one detailed background image/asset per theme that moves the final look closer to the original mock directions:
+    - red LED segmented display board
+    - cyan VFD segmented display panel
+    - arcade CRT/pixel cabinet/starfield
+    - cockpit HUD instrument-panel scene
+  - Keep the assets theme-only and decorative: no adapters, no runtime behavior, and no clickable UI meaning.
+  - Package the background assets through the existing retro theme bundle so both preinstalled and install-on-demand zip flows receive the same selected visual mode.
+  - Add proof that the generated bundle includes enhanced backgrounds when the TOML flag is on, excludes or disables them when off, and preserves existing theme compatibility for classic, aurora, and Passover consumers.
