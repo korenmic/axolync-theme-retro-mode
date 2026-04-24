@@ -36,3 +36,14 @@
   - Keep the assets theme-only and decorative: no adapters, no runtime behavior, and no clickable UI meaning.
   - Package the background assets through the existing retro theme bundle so both preinstalled and install-on-demand zip flows receive the same selected visual mode.
   - Add proof that the generated bundle includes enhanced backgrounds when the TOML flag is on, excludes or disables them when off, and preserves existing theme compatibility for classic, aurora, and Passover consumers.
+
+- [x] 7. Align the retro addon-manager close button glyph inside its square button.
+  - Fix the retro theme CSS/layout for the Addon Manager close affordance so the `X` is centered in its visible square at desktop and mobile sizes.
+  - Keep the hit target and accessible close semantics unchanged.
+  - Add a screenshot/assertion proof for at least one retro theme that catches the glyph drifting outside the button bounds.
+
+- [ ] 8. Make retro adapter action buttons fit lane cards at runtime.
+  - Add theme-owned responsive sizing/wrapping rules for lane action buttons such as `Disable lane`, `Settings`, and `Remove` so long labels never overflow their card bounds.
+  - Prefer runtime fit behavior: shrink label font only when needed, otherwise wrap buttons across rows while preserving click targets.
+  - Keep non-retro themes, classic, aurora, and Passover unaffected.
+  - Add screenshot proof for the adapter lane action row that previously overflowed.

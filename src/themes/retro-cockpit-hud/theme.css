@@ -135,3 +135,20 @@ body[data-theme="retro-cockpit-hud"] .lyric-unit.active .lyric-line-text {
   color: #8efef7;
   text-shadow: 0 0 18px rgba(142, 254, 247, 0.44), 0 0 5px rgba(255, 255, 255, 0.22);
 }
+
+body[data-theme="retro-cockpit-hud"] #plugin-manager-modal .close-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding: 0;
+  line-height: 1;
+  letter-spacing: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  font-family: "Courier New", monospace;
+  font-size: clamp(1.25rem, 4vw, 1.7rem);
+  text-align: center;
+}

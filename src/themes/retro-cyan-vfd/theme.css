@@ -141,3 +141,20 @@ body[data-theme="retro-cyan-vfd"] .lyric-unit.active .lyric-line-text {
   color: #5cfff7;
   text-shadow: 0 0 18px rgba(87, 255, 246, 0.62), 0 0 5px rgba(227, 255, 253, 0.35);
 }
+
+body[data-theme="retro-cyan-vfd"] #plugin-manager-modal .close-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding: 0;
+  line-height: 1;
+  letter-spacing: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  font-family: "Courier New", monospace;
+  font-size: clamp(1.25rem, 4vw, 1.7rem);
+  text-align: center;
+}

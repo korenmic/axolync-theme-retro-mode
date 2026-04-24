@@ -51,9 +51,22 @@ function assertLightBundle({ zipEntries, manifest }) {
   }
 }
 
+function assertRetroCloseButtonProof({ zipEntries }) {
+  for (const theme of RETRO_THEMES) {
+    const stylesheet = readZipText(zipEntries, theme.stylesheetPath);
+    assert.match(stylesheet, new RegExp(`body\\[data-theme="${theme.id}"\\] #plugin-manager-modal \\.close-btn`));
+    assert.match(stylesheet, /place-items:\s*center;/);
+    assert.match(stylesheet, /padding:\s*0;/);
+    assert.match(stylesheet, /line-height:\s*1;/);
+    assert.match(stylesheet, /font-family:\s*"Courier New", monospace;/);
+  }
+}
+
 const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'axolync-retro-theme-'));
 try {
-  assertEnhancedBundle(runBuild(path.join(tempRoot, 'enhanced')));
+  const enhancedBundle = runBuild(path.join(tempRoot, 'enhanced'));
+  assertEnhancedBundle(enhancedBundle);
+  assertRetroCloseButtonProof(enhancedBundle);
 
   const offConfigPath = path.join(tempRoot, 'retro-bundle-off.toml');
   fs.writeFileSync(offConfigPath, '[visuals]\nenhanced_backgrounds = false\n');

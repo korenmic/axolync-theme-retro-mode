@@ -133,3 +133,20 @@ body[data-theme="retro-arcade-crt"] .lyric-unit.active .lyric-line-text {
   color: #ffb16b;
   text-shadow: 0 0 0 rgba(0, 0, 0, 0), 0 0 12px rgba(255, 157, 93, 0.34);
 }
+
+body[data-theme="retro-arcade-crt"] #plugin-manager-modal .close-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding: 0;
+  line-height: 1;
+  letter-spacing: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  font-family: "Courier New", monospace;
+  font-size: clamp(1.25rem, 4vw, 1.7rem);
+  text-align: center;
+}
