@@ -42,7 +42,7 @@
   - Keep the hit target and accessible close semantics unchanged.
   - Add a screenshot/assertion proof for at least one retro theme that catches the glyph drifting outside the button bounds.
 
-- [ ] 8. Make retro adapter action buttons fit lane cards at runtime.
+- [x] 8. Make retro adapter action buttons fit lane cards at runtime.
   - Add theme-owned responsive sizing/wrapping rules for lane action buttons such as `Disable lane`, `Settings`, and `Remove` so long labels never overflow their card bounds.
   - Prefer runtime fit behavior: shrink label font only when needed, otherwise wrap buttons across rows while preserving click targets.
   - Keep non-retro themes, classic, aurora, and Passover unaffected.

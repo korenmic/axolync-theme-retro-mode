@@ -180,3 +180,25 @@ body[data-theme="retro-red-led"] #plugin-manager-modal .close-btn {
   font-size: clamp(1.25rem, 4vw, 1.7rem);
   text-align: center;
 }
+
+body[data-theme="retro-red-led"] #plugin-manager-modal .plugin-item .plugin-actions {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: clamp(0.3rem, 1vw, 0.5rem);
+  overflow: hidden;
+}
+
+body[data-theme="retro-red-led"] #plugin-manager-modal .plugin-item .plugin-actions > button {
+  flex: 1 1 7.25rem;
+  min-width: 0;
+  max-width: 100%;
+  padding: 0.46rem 0.52rem;
+  font-size: clamp(0.68rem, 1.8vw, 0.9rem);
+  line-height: 1.12;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-align: center;
+}
