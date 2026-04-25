@@ -32,6 +32,7 @@ const outputDir = path.resolve(
 const bundleZipPath = path.join(outputDir, `${RETRO_BUNDLE_ID}.zip`);
 const bundleManifestPath = path.join(outputDir, `${RETRO_BUNDLE_ID}.manifest.json`);
 const bundleContentsPath = path.join(outputDir, `${RETRO_BUNDLE_ID}.contents.json`);
+const ZIP_MTIME = new Date('1980-01-01T00:00:00Z');
 
 fs.mkdirSync(outputDir, { recursive: true });
 
@@ -164,7 +165,7 @@ fs.writeFileSync(bundleContentsPath, JSON.stringify({
   themes: zipContentIndex,
 }, null, 2));
 
-const zipBuffer = Buffer.from(zipSync(zipEntries, { level: 0 }));
+const zipBuffer = Buffer.from(zipSync(zipEntries, { level: 0, mtime: ZIP_MTIME }));
 fs.writeFileSync(bundleZipPath, zipBuffer);
 
 console.log(`Wrote ${bundleZipPath}`);

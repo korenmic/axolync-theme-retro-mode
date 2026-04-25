@@ -14,6 +14,7 @@ const DESCENDER = -140;
 const GLYPH_ADVANCE = 780;
 const MARGIN_X = 80;
 const MARGIN_Y = 110;
+const FONT_EPOCH_SECONDS = 2082844800; // 1970-01-01 in TrueType's 1904 epoch.
 
 const FAMILY_STYLES = {
   'retro-red-led': {
@@ -145,8 +146,64 @@ function buildFontForTheme(themeId) {
     unitsPerEm: UNITS_PER_EM,
     ascender: ASCENDER,
     descender: DESCENDER,
+    createdTimestamp: 1,
     glyphs,
   });
+}
+
+function readUInt32(buffer, offset) {
+  return buffer.readUInt32BE(offset) >>> 0;
+}
+
+function writeLongDateTime(buffer, offset, seconds) {
+  buffer.writeBigUInt64BE(BigInt(seconds), offset);
+}
+
+function computeTrueTypeChecksum(buffer) {
+  let checksum = 0;
+  for (let offset = 0; offset < buffer.length; offset += 4) {
+    const value = offset + 4 <= buffer.length
+      ? buffer.readUInt32BE(offset)
+      : Buffer.concat([buffer.subarray(offset), Buffer.alloc(offset + 4 - buffer.length)]).readUInt32BE(0);
+    checksum = (checksum + value) >>> 0;
+  }
+  return checksum >>> 0;
+}
+
+function computeTrueTypeTableChecksum(buffer, offset, length) {
+  return computeTrueTypeChecksum(buffer.subarray(offset, offset + length));
+}
+
+function normalizeTrueTypeFont(buffer) {
+  const normalized = Buffer.from(buffer);
+  const numTables = normalized.readUInt16BE(4);
+  let headRecordOffset = -1;
+  let headTableOffset = -1;
+  let headTableLength = -1;
+  for (let index = 0; index < numTables; index += 1) {
+    const recordOffset = 12 + index * 16;
+    const tag = normalized.toString('ascii', recordOffset, recordOffset + 4);
+    if (tag === 'head') {
+      headRecordOffset = recordOffset;
+      headTableOffset = readUInt32(normalized, recordOffset + 8);
+      headTableLength = readUInt32(normalized, recordOffset + 12);
+      break;
+    }
+  }
+  if (headTableOffset < 0) {
+    throw new Error('Generated retro font is missing a head table.');
+  }
+
+  normalized.writeUInt32BE(0, headTableOffset + 8);
+  writeLongDateTime(normalized, headTableOffset + 20, FONT_EPOCH_SECONDS);
+  writeLongDateTime(normalized, headTableOffset + 28, FONT_EPOCH_SECONDS);
+  normalized.writeUInt32BE(
+    computeTrueTypeTableChecksum(normalized, headTableOffset, headTableLength),
+    headRecordOffset + 4,
+  );
+  const checksum = computeTrueTypeChecksum(normalized);
+  normalized.writeUInt32BE((0xB1B0AFBA - checksum) >>> 0, headTableOffset + 8);
+  return normalized;
 }
 
 for (const theme of RETRO_THEMES) {
@@ -162,7 +219,7 @@ for (const theme of RETRO_THEMES) {
   const previewPath = path.join(familyDir, 'glyph-map.json');
   fs.writeFileSync(previewPath, `${JSON.stringify({ familyName: style.familyName, glyphs: BITMAP_GLYPHS }, null, 2)}\n`, 'utf8');
 
-  const ttfBuffer = Buffer.from(font.toArrayBuffer());
+  const ttfBuffer = normalizeTrueTypeFont(Buffer.from(font.toArrayBuffer()));
   const ttfName = `${theme.id}.ttf`;
   fs.writeFileSync(path.join(shippedDir, ttfName), ttfBuffer);
   fs.writeFileSync(path.join(artifactDir, ttfName), ttfBuffer);
