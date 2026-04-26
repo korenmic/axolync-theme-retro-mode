@@ -47,3 +47,10 @@
   - Prefer runtime fit behavior: shrink label font only when needed, otherwise wrap buttons across rows while preserving click targets.
   - Keep non-retro themes, classic, aurora, and Passover unaffected.
   - Add screenshot proof for the adapter lane action row that previously overflowed.
+
+- [x] 9. Fix Retro Mode Hebrew glyph readability using shipped runtime-bundle proof.
+  - Treat the 2026-04-26 Android and Windows runtime screenshots as the repro: Hebrew lyrics render as segmented pseudo-Latin fragments instead of recognizable Hebrew text.
+  - Stop accepting proof images rendered only from repo-local/generated font files when those images do not match the installed artifact behavior.
+  - Render proof images from the same `retro-mode-bundle.zip` font and CSS assets that Android and desktop artifacts actually consume, then compare those outputs against runtime screenshots.
+  - Rework the generated Hebrew glyph maps and TTF outputs for all four retro themes until the full Hebrew alphabet and representative Hebrew lyric words are readable, while preserving as much retro styling as readability allows.
+  - Store before/after bundle-rendered proof images in the repo artifacts so future reviews can see exactly which shipped fonts were tested.

@@ -5,6 +5,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { strFromU8, unzipSync } from 'fflate';
+import opentype from 'opentype.js';
 import { RETRO_THEMES } from './retroThemeConfig.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -74,12 +75,33 @@ function assertRetroActionButtonFitProof({ zipEntries }) {
   }
 }
 
+function parseFont(bytes) {
+  const buffer = Buffer.from(bytes);
+  const arrayBuffer = buffer.buffer.slice(buffer.byteOffset, buffer.byteOffset + buffer.byteLength);
+  return opentype.parse(arrayBuffer);
+}
+
+function assertRetroHebrewGlyphCoverage({ zipEntries, manifest }) {
+  const hebrewLetters = Array.from('אבגדהוזחטיכךלמםנןסעפףצץקרשת');
+  for (const theme of manifest.theme_bundle.themes) {
+    const fontPath = theme.font_paths[0];
+    assert.ok(zipEntries[fontPath], `${theme.theme_id} should include shipped font ${fontPath}`);
+    const font = parseFont(zipEntries[fontPath]);
+    for (const letter of hebrewLetters) {
+      const glyph = font.charToGlyph(letter);
+      assert.notEqual(glyph.name, '.notdef', `${theme.theme_id} should include ${letter}`);
+      assert.ok(glyph.path.commands.length >= 6, `${theme.theme_id} ${letter} should have a readable non-empty bitmap path`);
+    }
+  }
+}
+
 const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'axolync-retro-theme-'));
 try {
   const enhancedBundle = runBuild(path.join(tempRoot, 'enhanced'));
   assertEnhancedBundle(enhancedBundle);
   assertRetroCloseButtonProof(enhancedBundle);
   assertRetroActionButtonFitProof(enhancedBundle);
+  assertRetroHebrewGlyphCoverage(enhancedBundle);
 
   const offConfigPath = path.join(tempRoot, 'retro-bundle-off.toml');
   fs.writeFileSync(offConfigPath, '[visuals]\nenhanced_backgrounds = false\n');

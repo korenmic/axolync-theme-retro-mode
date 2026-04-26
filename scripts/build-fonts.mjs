@@ -47,11 +47,11 @@ const FAMILY_STYLES = {
   },
 };
 
-function cellMetrics(style) {
+function cellMetrics(style, gridWidth = CELL_GRID_WIDTH, gridHeight = CELL_GRID_HEIGHT) {
   const usableWidth = GLYPH_ADVANCE - MARGIN_X * 2;
   const usableHeight = ASCENDER + Math.abs(DESCENDER) - MARGIN_Y * 2;
-  const cellWidth = Math.floor((usableWidth - (CELL_GRID_WIDTH - 1) * style.gap) / CELL_GRID_WIDTH);
-  const cellHeight = Math.floor((usableHeight - (CELL_GRID_HEIGHT - 1) * style.gap) / CELL_GRID_HEIGHT);
+  const cellWidth = Math.floor((usableWidth - (gridWidth - 1) * style.gap) / gridWidth);
+  const cellHeight = Math.floor((usableHeight - (gridHeight - 1) * style.gap) / gridHeight);
   return { cellWidth, cellHeight };
 }
 
@@ -105,14 +105,16 @@ function buildCellPolygon(x, y, width, height, style) {
 
 function buildGlyphPath(rows, style) {
   const pathBuilder = new opentype.Path();
-  const { cellWidth, cellHeight } = cellMetrics(style);
+  const gridWidth = Math.max(CELL_GRID_WIDTH, ...rows.map((row) => row.length));
+  const gridHeight = Math.max(CELL_GRID_HEIGHT, rows.length);
+  const { cellWidth, cellHeight } = cellMetrics(style, gridWidth, gridHeight);
   for (let rowIndex = 0; rowIndex < rows.length; rowIndex += 1) {
     const row = rows[rowIndex];
     for (let colIndex = 0; colIndex < row.length; colIndex += 1) {
       if (row[colIndex] !== '1') continue;
       const x = MARGIN_X + colIndex * (cellWidth + style.gap);
       const y = ASCENDER - MARGIN_Y - cellHeight - rowIndex * (cellHeight + style.gap);
-      const skewOffset = style.skew ? (CELL_GRID_HEIGHT - rowIndex - 1) * style.skew : 0;
+      const skewOffset = style.skew ? (gridHeight - rowIndex - 1) * style.skew : 0;
       const polygon = buildCellPolygon(x + skewOffset, y, cellWidth, cellHeight, style);
       addPolygon(pathBuilder, polygon);
     }
