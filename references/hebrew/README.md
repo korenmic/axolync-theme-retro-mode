@@ -10,3 +10,4 @@ Rules:
 - QA must fail with a specific missing reference id when metadata is incomplete.
 - If a reference image is introduced later, the metadata must map every supported Hebrew letter and final form to an explicit crop region.
 - The supported alphabet is the regular Hebrew alphabet plus final forms: `אבגדהוזחטיכךלמםנןסעפףצץקרשת`.
+- Full-alphabet review artifacts are generated with `npm run qa:hebrew:alphabet` under `artifacts/output/hebrew-glyph-qa/full-alphabet/`.

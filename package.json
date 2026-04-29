@@ -9,6 +9,7 @@
     "proof:hebrew": "node scripts/render-hebrew-proof.mjs",
     "qa:hebrew": "node scripts/hebrewGlyphQa.mjs",
     "qa:hebrew:poc": "node scripts/hebrewGlyphOneLetterPoc.mjs",
+    "qa:hebrew:alphabet": "node scripts/hebrewGlyphAlphabetProof.mjs",
     "test:hebrew-glyph-qa": "node scripts/test-hebrew-glyph-qa.mjs",
     "package": "npm run build:fonts && npm run build:bundle",
     "test": "node scripts/verify-bundle.mjs"

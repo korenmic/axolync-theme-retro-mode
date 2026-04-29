@@ -43,7 +43,7 @@
   - If the one-letter correction cannot pass deterministically, stop and mark the queue item blocked rather than mass-editing all glyphs blindly.
   - _Requirements: 4.1, 4.2_
 
-- [ ] 5. Correct and gate the full Hebrew alphabet across all retro themes.
+- [x] 5. Correct and gate the full Hebrew alphabet across all retro themes.
   - Expand the same correction loop from the one-letter POC to every supported Hebrew letter, including final forms.
   - Preserve word-level readability over strict segmented styling when the two conflict.
   - Generate before/after proof sheets for all themes and representative Hebrew sample lines.
