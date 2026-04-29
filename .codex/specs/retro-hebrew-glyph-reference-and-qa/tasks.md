@@ -26,7 +26,7 @@
   - Do not render from source font data directly unless the task also proves the same data was packaged into the bundle.
   - _Requirements: 2.1, 2.3, 2.4, 2.5_
 
-- [ ] 3. Implement deterministic Hebrew glyph mask comparison.
+- [x] 3. Implement deterministic Hebrew glyph mask comparison.
   - Add reference-mask loading, rendered-glyph mask extraction, normalization, and similarity scoring.
   - Fail with theme, glyph, score, threshold, and proof path when a glyph is below threshold.
   - Add focused tests for missing references, malformed metadata, score calculation, and failure messages.
