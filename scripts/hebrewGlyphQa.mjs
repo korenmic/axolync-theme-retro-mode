@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { strFromU8, unzipSync } from 'fflate';
 import opentype from 'opentype.js';
@@ -77,6 +78,44 @@ export function formatGlyphFailure({ themeId, glyphId, char, score, threshold, p
   return `${themeId} ${glyphId} (${char}) scored ${score.toFixed(3)} below ${threshold.toFixed(3)}; proof: ${proofPath ?? 'unavailable'}`;
 }
 
+export function collectOcrDiagnostics(config) {
+  const command = String(config.ocr_command ?? '').trim();
+  if (!command) {
+    return {
+      enabled: false,
+      skipped: true,
+      required: Boolean(config.ocr_required),
+      reason: 'ocr_command is empty',
+    };
+  }
+
+  const probe = spawnSync(command, ['--version'], {
+    encoding: 'utf8',
+    windowsHide: true,
+  });
+  if (probe.error || probe.status !== 0) {
+    const reason = probe.error?.message ?? probe.stderr?.trim() ?? `exit ${probe.status}`;
+    if (config.ocr_required) {
+      throw new Error(`Required Hebrew glyph OCR command failed: ${command}: ${reason}`);
+    }
+    return {
+      enabled: false,
+      skipped: true,
+      required: false,
+      command,
+      reason,
+    };
+  }
+
+  return {
+    enabled: true,
+    skipped: false,
+    required: Boolean(config.ocr_required),
+    command,
+    version: `${probe.stdout ?? ''}${probe.stderr ?? ''}`.trim().split(/\r?\n/)[0] ?? '',
+  };
+}
+
 function parseFont(bytes) {
   const buffer = Buffer.from(bytes);
   const arrayBuffer = buffer.buffer.slice(buffer.byteOffset, buffer.byteOffset + buffer.byteLength);
@@ -124,6 +163,7 @@ export function scoreHebrewGlyphs({ config, metadata, bundlePath, outputDir }) {
     bundlePath: path.relative(REPO_ROOT, bundlePath).replace(/\\/g, '/'),
     metric: config.primary_metric,
     threshold: config.glyph_threshold,
+    ocr: collectOcrDiagnostics(config),
     themes: [],
     failures: [],
   };

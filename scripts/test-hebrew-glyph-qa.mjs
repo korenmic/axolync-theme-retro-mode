@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {
+  collectOcrDiagnostics,
   formatGlyphFailure,
   scoreMaskIou,
 } from './hebrewGlyphQa.mjs';
@@ -33,6 +34,17 @@ assert.match(failureMessage, /retro-red-led/);
 assert.match(failureMessage, /hebrew-alef/);
 assert.match(failureMessage, /0\.400 below 0\.700/);
 assert.match(failureMessage, /hebrew-alef\.png/);
+
+assert.deepEqual(collectOcrDiagnostics({ ocr_required: false, ocr_command: '' }), {
+  enabled: false,
+  skipped: true,
+  required: false,
+  reason: 'ocr_command is empty',
+});
+assert.throws(
+  () => collectOcrDiagnostics({ ocr_required: true, ocr_command: '__missing_ocr_binary__' }),
+  /Required Hebrew glyph OCR command failed/,
+);
 
 withTempDir((dir) => {
   const configPath = path.join(dir, 'config', 'hebrew-glyph-qa.toml');

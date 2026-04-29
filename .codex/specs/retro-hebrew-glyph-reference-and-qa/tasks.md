@@ -51,7 +51,7 @@
   - Ensure right-to-left sample words render in the same order the runtime uses; do not fake LTR-only proof.
   - _Requirements: 2.2, 2.3, 3.1, 3.2, 3.3, 4.3_
 
-- [ ] 6. Add optional OCR diagnostics without making OCR the required gate.
+- [x] 6. Add optional OCR diagnostics without making OCR the required gate.
   - Detect a configured or locally available OCR path when present.
   - Record OCR output as advisory diagnostics in the QA report.
   - Skip OCR cleanly when unavailable, while still running deterministic mask comparison.
