@@ -1,0 +1,6 @@
+{
+  "glyphId": "hebrew-alef",
+  "char": "א",
+  "source": "pre-Q-351 generated Alef bitmap",
+  "template": ["1001001", "0101001", "0011010", "0001100", "0011010", "0100101", "1000011"]
+}

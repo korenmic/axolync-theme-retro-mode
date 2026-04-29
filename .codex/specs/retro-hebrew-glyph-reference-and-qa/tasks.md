@@ -34,7 +34,7 @@
   - Keep scores per glyph and per theme in machine-readable output for later report ingestion.
   - _Requirements: 1.3, 3.1, 3.4, 6.4_
 
-- [ ] 4. Prove the one-letter correction loop before enforcing the full alphabet.
+- [x] 4. Prove the one-letter correction loop before enforcing the full alphabet.
   - Select the initial configured Hebrew POC letter from the QA config.
   - Render the current broken/candidate bundle state for that letter.
   - Adjust the generated glyph data for that one letter until the bundle-rendered proof passes the deterministic QA threshold.
