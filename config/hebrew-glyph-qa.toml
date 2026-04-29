@@ -1,0 +1,17 @@
+[hebrew_glyph_qa]
+enabled = true
+primary_metric = "mask_iou"
+glyph_threshold = 0.70
+word_line_threshold = 0.62
+one_letter_poc = "hebrew-alef"
+alphabet = "אבגדהוזחטיכךלמםנןסעפףצץקרשת"
+reference_metadata_path = "references/hebrew/reference-hebrew-alphabet.json"
+proof_output_dir = "artifacts/output/hebrew-glyph-qa"
+ocr_required = false
+ocr_command = ""
+
+[hebrew_glyph_qa.rendering]
+bundle_path = "artifacts/output/installable/retro-mode-bundle.zip"
+current_label = "current"
+candidate_label = "candidate"
+sample_words = ["שלום", "עברית", "ירושלים", "מוזיקה"]

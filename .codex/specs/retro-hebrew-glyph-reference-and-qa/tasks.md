@@ -10,7 +10,7 @@
 - If the approved Hebrew reference sheet is not already committed in the repo, create a clearly documented placeholder/reference path and fail gracefully with a useful message instead of inventing an unreviewed reference.
 - Every implementation task that changes glyph generation must produce or update a proof image path in the repo-local proof output, so the human reviewer can visually inspect the result.
 
-- [ ] 1. Add the Hebrew glyph QA reference scaffold and config.
+- [x] 1. Add the Hebrew glyph QA reference scaffold and config.
   - Create `references/hebrew/` with a documented placeholder or committed reference asset path for the approved Hebrew alphabet sheet.
   - Add metadata shape for mapping rendered Hebrew letters to reference regions/templates.
   - Add `config/hebrew-glyph-qa.toml` with configurable metric, threshold, proof output, and optional OCR settings.
