@@ -18,7 +18,7 @@
   - Add validation that fails with the exact missing glyph/reference id when metadata is incomplete.
   - _Requirements: 1.1, 1.2, 1.3, 1.4, 3.4_
 
-- [ ] 2. Upgrade bundle-rendered Hebrew proof into stable QA input.
+- [x] 2. Upgrade bundle-rendered Hebrew proof into stable QA input.
   - Extend the existing Hebrew proof renderer so it reads the built `retro-mode-bundle.zip` and emits per-theme alphabet, per-letter, and sample-word proof outputs with stable crop boundaries.
   - Ensure generated PNG and HTML proof outputs land under a predictable repo-local proof folder.
   - Keep proof execution headless and isolated from user browser profiles.
