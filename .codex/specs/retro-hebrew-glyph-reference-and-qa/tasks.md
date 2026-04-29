@@ -58,7 +58,7 @@
   - Add tests for OCR skip behavior.
   - _Requirements: 5.1, 5.2, 5.3, 5.4_
 
-- [ ] 7. Wire Hebrew glyph QA into repo verification and proof reporting.
+- [x] 7. Wire Hebrew glyph QA into repo verification and proof reporting.
   - Add a clear npm script for Hebrew glyph QA and call it from the repo verification flow once calibrated.
   - Ensure the command builds or consumes the correct retro bundle before scoring glyphs.
   - Emit a concise pass summary with checked themes, checked glyphs, and proof image paths.

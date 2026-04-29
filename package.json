@@ -12,7 +12,7 @@
     "qa:hebrew:alphabet": "node scripts/hebrewGlyphAlphabetProof.mjs",
     "test:hebrew-glyph-qa": "node scripts/test-hebrew-glyph-qa.mjs",
     "package": "npm run build:fonts && npm run build:bundle",
-    "test": "node scripts/verify-bundle.mjs"
+    "test": "npm run package && npm run proof:hebrew && npm run qa:hebrew && npm run test:hebrew-glyph-qa && node scripts/verify-bundle.mjs"
   },
   "dependencies": {
     "fflate": "^0.8.2",
