@@ -66,6 +66,16 @@
   - Keep the script fast enough for normal repo verification; if OCR is slow or unavailable, leave it outside the required gate.
   - _Requirements: 6.1, 6.2, 6.3, 6.4_
 
+- [ ] 8. Rework Hebrew glyphs through a human/AI-reviewed bitmap-template correction loop.
+  - Render the actual shipped `retro-mode-bundle.zip` Hebrew glyphs as individual per-letter images and full alphabet contact sheets for every retro theme.
+  - Review those rendered images visually, not only through the current deterministic mask score, and record the low-quality letters with per-glyph notes.
+  - Use AI visual review and, if useful, image-generation inspiration to design better Hebrew letter silhouettes, but encode the final result manually as deterministic bitmap templates in the repo source.
+  - Regenerate the retro fonts from those bitmap templates, rebuild the theme bundle, and render new before/after proof sheets from the rebuilt installable bundle.
+  - Update the QA reference masks only after the reviewed glyphs are visibly Hebrew-readable; do not let the reference remain self-referential to bad generated shapes.
+  - Add advisory OCR/word-level diagnostics where locally available, but keep human/AI visual review plus deterministic bitmap proof as the primary correction loop.
+  - Definition of done: the task outputs per-letter proof images, full alphabet proof sheets, representative Hebrew word/phrase proofs, and a machine-readable report listing fixed glyphs and remaining human-review concerns.
+  - _Requirements: 1.1, 2.1, 2.2, 3.1, 3.4, 4.3, 5.1, 6.4_
+
 ## Self-Review Notes
 
 - The plan starts with reference/config scaffolding before code, so the target is explicit.
