@@ -1,0 +1,84 @@
+{
+  "version": 1,
+  "reviewedAt": "2026-05-01",
+  "source": "Q-396 human/AI-reviewed bitmap-template correction loop",
+  "previousManualScores": [5, 5, 5, 5, 6, 7, 5, 10, 5, 10, 10, 10, 3, 2, 10, 10, 10, 10, 2, 10, 10, 7, 7, 2, 10, 10, 4],
+  "alphabetOrder": [
+    "hebrew-alef",
+    "hebrew-bet",
+    "hebrew-gimel",
+    "hebrew-dalet",
+    "hebrew-he",
+    "hebrew-vav",
+    "hebrew-zayin",
+    "hebrew-het",
+    "hebrew-tet",
+    "hebrew-yod",
+    "hebrew-kaf",
+    "hebrew-final-kaf",
+    "hebrew-lamed",
+    "hebrew-mem",
+    "hebrew-final-mem",
+    "hebrew-nun",
+    "hebrew-final-nun",
+    "hebrew-samekh",
+    "hebrew-ayin",
+    "hebrew-pe",
+    "hebrew-final-pe",
+    "hebrew-tsadi",
+    "hebrew-final-tsadi",
+    "hebrew-qof",
+    "hebrew-resh",
+    "hebrew-shin",
+    "hebrew-tav"
+  ],
+  "fixedGlyphs": [
+    {
+      "id": "hebrew-alef",
+      "reason": "Reduce X-like symmetry and emphasize alef's broken diagonal arms."
+    },
+    {
+      "id": "hebrew-gimel",
+      "reason": "Make the lower leg clearer instead of a near-vertical block."
+    },
+    {
+      "id": "hebrew-lamed",
+      "reason": "Manual score was low; redraw as tall hook with a broad lower foot."
+    },
+    {
+      "id": "hebrew-mem",
+      "reason": "Manual score was very low; distinguish open mem from final mem with a visible lower opening/step."
+    },
+    {
+      "id": "hebrew-ayin",
+      "reason": "Manual score was very low; redraw as a recognizable descending ayin bowl/leg silhouette."
+    },
+    {
+      "id": "hebrew-pe",
+      "reason": "Strengthen inner mouth and outer frame for better word-level readability."
+    },
+    {
+      "id": "hebrew-final-pe",
+      "reason": "Preserve pe identity while extending the final-form vertical stroke."
+    },
+    {
+      "id": "hebrew-resh",
+      "reason": "Differentiate resh from dalet by shortening the top bar."
+    },
+    {
+      "id": "hebrew-tav",
+      "reason": "Manual score was low; add a more distinctive left leg and inner gap."
+    }
+  ],
+  "remainingHumanReviewConcerns": [
+    "Seven-by-seven bitmap constraints still limit Hebrew calligraphic fidelity.",
+    "OCR is advisory only; final acceptance still requires human visual review of generated proof sheets.",
+    "If a future reviewer supplies a better reference sheet, replace these reviewed masks with that external reference instead of self-referential scoring."
+  ],
+  "proofOutputs": {
+    "overview": "artifacts/output/hebrew-glyph-qa/current-overview.png",
+    "manifest": "artifacts/output/hebrew-glyph-qa/hebrew-proof-manifest.json",
+    "qaReport": "artifacts/output/hebrew-glyph-qa/hebrew-glyph-qa-report.json",
+    "fullAlphabet": "artifacts/output/hebrew-glyph-qa/full-alphabet/hebrew-full-alphabet-after.svg"
+  }
+}
