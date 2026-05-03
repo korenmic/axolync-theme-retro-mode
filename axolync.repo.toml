@@ -1,0 +1,39 @@
+schema = "axolync.repo/v1"
+
+[repo]
+id = "axolync-theme-retro-mode"
+roles = ["consumable"]
+display_name = "Axolync Retro Mode Theme"
+description = "Installable theme bundle containing the Retro Mode theme family."
+
+[source]
+git_url = "https://github.com/korenmic/axolync-theme-retro-mode.git"
+default_ref = "master"
+local_dev_path_hint = "../axolync-theme-retro-mode"
+
+[bootstrap]
+install_mode = "managed-clone"
+install_root = ".axolync/repos"
+readme = "README.md"
+agent_docs = ["README.md", "docs/project-seeds"]
+
+[exports.tests]
+full = "npm run package"
+smoke = "npm run package"
+
+[exports.seeds]
+roots = ["docs/project-seeds"]
+
+[exports.docs]
+bootstrap = ["README.md"]
+standards = ["docs/project-seeds"]
+
+[exports.packaging]
+command = "npm run package"
+outputs = ["artifacts/output/installable/retro-mode-bundle.zip"]
+
+[[consumes.repos]]
+id = "axolync-contract"
+use = "schema-and-runtime-contracts"
+required = true
+source = "managed"
